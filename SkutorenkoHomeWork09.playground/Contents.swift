@@ -31,10 +31,11 @@ for i in str {
     }
 }
 
-number
-consonants
-vowels
-characters
+print("\(number)")
+print("\(consonants)")
+print("\(vowels)")
+print("\(characters)")
+
 
 /*
 2. Создайте свитч который принимает возраст человека и выводит описание жизненного этапа
@@ -63,23 +64,50 @@ default:
 }
 
 /*
-3. У вас есть имя отчество и фамилия студента (русские буквы). Имя начинается с А или О, то обращайтесь к студенту по имени, если же нет, то если у него отчество начинается на В или Д, то обращайтесь к нему по имени и отчеству, если же опять нет, то в случае если фамилия начинается с Е или З, то обращайтесь к нему только по фамилии. В противном случае обращайтесь к нему по полному имени.
+3. У вас есть имя отчество и фамилия студента (русские буквы).
+ Имя начинается с А или О, то обращайтесь к студенту по имени, если же нет,
+ то если у него отчество начинается на В или Д, то обращайтесь к нему по имени и отчеству, если же опять нет,
+ то в случае если фамилия начинается с Е или З, то обращайтесь к нему только по фамилии.
+ В противном случае обращайтесь к нему по полному имени.
 */
 
 var name = "Владимир"
+var patronymic = "Михайлович"
 var surname = "Крижановский"
 
-var man = (name, surname)
+var man = (name, patronymic, surname)
 
 switch man {
-case (name, surname) where name == "Владимир":
-    print("стадия новорожденности и младенчество")
+case (name, _, _) where name[name.index(name.startIndex, offsetBy: 0)] == "A" || name[name.index(name.startIndex, offsetBy: 0)] == "О":
+    print("\(man.0)")
+case (_, patronymic, _) where patronymic[patronymic.index(patronymic.startIndex, offsetBy: 0)] == "В" || patronymic[patronymic.index(patronymic.startIndex, offsetBy: 0)] == "Д":
+    print("\(man.0) \(man.1)")
+case (_, _, surname) where patronymic[patronymic.index(patronymic.startIndex, offsetBy: 0)] == "Е" || patronymic[patronymic.index(patronymic.startIndex, offsetBy: 0)] == "З":
+    print("\(man.2)")
 default:
-    break
+    print("\(man.0) \(man.1) \(man.2)")
 }
 
 /*
 4. Представьте что вы играете в морской бои и у вас осталось некоторое количество кораблей на поле 10Х10 (можно буквы и цифры, а можно только цифры). Вы должны создать свитч, который примет тюпл с координатой и выдаст один из вариантов: мимо, ранил, убил.
 */
 
+//Карабли
 
+
+//Точка в которую летит снаряд
+
+
+//Провера попал или нет
+
+var x = 1
+var y = 2
+
+var cell = (x, y)
+
+switch cell {
+case let (x, y):
+    print("\(x,y)")
+default:
+    break
+}
